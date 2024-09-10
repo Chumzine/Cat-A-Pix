@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" type="module"></script>
+    <title>Cat-A-Pix</title>
+</head>
+<body>
+    <main>
+        <section>
+            <header>
+                <img class="logo" src="./images/cat-a-pix.png" alt="logo">
+                <h1>Cat-A-Pix</h1>
+            </header>
+        </section>
+        <section>
+            <div class="form-container">
+                <h3>Create Your Repository</h3><br>
+                <form id="repoForm" enctype="multipart/form-data">
+                    <div>
+                        <label for="file">Picture</label>
+                        <input type="file" id="file" name="file" accept="image/*">
+                    </div><br><br>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="" id="name">
+                    </div><br><br>
+                    <div>
+                        <label for="categories">Category</label>
+                        <select name="category" id="categories">
+                            <option value="domestic">Domestic cats</option>
+                            <option value="wild">Wild cats</option>
+                        </select>
+                    </div><br><br>
+
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </section>
+        <section class="list">
+            <h3>Picture List</h3>
+            <ul id="itemList"></ul>
+
+            <button id="deleteChecked">Delete Checked Items</button>
+        </section>
+    </main>
+</body>
+</html>
