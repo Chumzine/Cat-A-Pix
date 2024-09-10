@@ -95,11 +95,22 @@ const displaySingleItem = (item, index) => {
         <img src="${item.picture}" alt="Cat Picture" width="90px" height="100px" />
         <p>Name: ${item.name}</p>
         <p>Category: ${item.category}</p>
-        <button style="background-color: green; padding: 5px 6px; color: #fff; border-radius: 6px;" onclick="editItem(${index})">Edit</button>
-        <button style="background-color: red; padding: 5px 6px; color: #fff; border-radius: 6px;" onclick="deleteItem(${index})">Delete</button><br><br>
+        <button class="edit-btn" style="background-color: green; padding: 5px 6px; color: #fff; border-radius: 6px;" data-index="${index}">Edit</button>
+        <button class="delete-btn" style="background-color: red; padding: 5px 6px; color: #fff; border-radius: 6px;" data-index="${index}">Delete</button><br><br>
     `;
 
     itemList.appendChild(li);  // Dynamically append the new item to the list
+
+    // Add event listeners to the newly created buttons
+    const editButton = li.querySelector('.edit-btn');
+    editButton.addEventListener('click', () => {
+        editItem(index);
+    });
+
+    const deleteButton = li.querySelector('.delete-btn');
+    deleteButton.addEventListener('click', () => {
+        deleteItem(index);
+    });
 };
 
 // Function to create an item

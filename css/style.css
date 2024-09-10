@@ -72,6 +72,10 @@ form button {
     margin-left: 120px;
 }
 
+ul li {
+    list-style: none;
+}
+
 #deleteChecked {
     background-color: #2f3990;
     color: #fff;
