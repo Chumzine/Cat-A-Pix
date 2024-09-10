@@ -21,10 +21,9 @@ const initApp = () => {
         const name = document.getElementById('name').value;
         const category = document.getElementById('categories').value;
 
-        if (!pictureFile) {
-            alert("Please upload an image.");
-            return;
-        }
+        // Validate the input fields
+        const isValid = validateForm(pictureFile, name, category);
+        if (!isValid) return;
 
         // Convert the image file to Base64
         const base64Image = await convertImageToBase64(pictureFile);
@@ -49,8 +48,34 @@ const initApp = () => {
         refreshThePage(); 
     });
 
-    refreshThePage();  // Initial display of the repository items
+    refreshThePage();
 };
+
+// Form validation
+const validateForm = (pictureFile, name, category) => {
+    let isValid = true;
+
+    // Validate picture
+    if (!pictureFile) {
+        alert("Please upload a picture.");
+        isValid = false;
+    }
+
+    // Validate name
+    if (name === "") {
+        alert("Please enter a valid name.");
+        isValid = false;
+    }
+
+    // Validate category
+    if (category === "") {
+        alert("Please select a category.");
+        isValid = false;
+    }
+
+    return isValid;
+};
+
 
 // Convert image file to Base64
 const convertImageToBase64 = (file) => {
