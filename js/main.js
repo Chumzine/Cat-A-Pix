@@ -63,7 +63,7 @@ const validateForm = (pictureFile, name, category) => {
 
     // Validate name
     if (name === "") {
-        alert("Please enter a valid name.");
+        alert("Please name must be filled.");
         isValid = false;
     }
 
